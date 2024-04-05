@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-
-// import InputText from "components/PrimeReact/InputText";
+import './Register.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -30,7 +28,6 @@ const Register = () => {
 
       if (response.ok) {
         alert('User registered successfully');
-        // Redirect to a success page or do something else
       } else {
         alert('Registration failed');
       }
@@ -41,7 +38,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="register-container"> {/* Apply the CSS class */}
       <h1>User Registration</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
@@ -52,7 +49,7 @@ const Register = () => {
           value={formData.username}
           onChange={handleChange}
           required
-        /><br/><br/>
+        />
         
         <label htmlFor="email">Email:</label>
         <input
@@ -62,7 +59,7 @@ const Register = () => {
           value={formData.email}
           onChange={handleChange}
           required
-        /><br/><br/>
+        />
         
         <label htmlFor="password">Password:</label>
         <input
@@ -72,11 +69,12 @@ const Register = () => {
           value={formData.password}
           onChange={handleChange}
           required
-        /><br/><br/>
+        />
         
         <button type="submit">Register</button>
       </form>
     </div>
   );
 }
+
 export default Register;

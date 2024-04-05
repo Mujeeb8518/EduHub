@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Login.css';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -30,7 +31,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login-container"> {/* Apply the CSS class */}
       <h1>User Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>

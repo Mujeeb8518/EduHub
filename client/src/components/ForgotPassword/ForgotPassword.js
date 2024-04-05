@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ForgotPassword.css';
 
 const ForgotPassword = () => {
   const [username, setUsername] = useState('');
@@ -32,7 +33,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div>
+    <div className="forgot-password-container"> {/* Apply the CSS class */}
       <h1>Retrieve Password</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
@@ -43,7 +44,7 @@ const ForgotPassword = () => {
 
         <button type="submit">Retrieve Password</button>
       </form>
-      {errorMessage && <div>{errorMessage}</div>}
+      {errorMessage && <div className="error">{errorMessage}</div>}
     </div>
   );
 }

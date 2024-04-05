@@ -2,15 +2,40 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
 .card-container {
     width: 80%;
-    margin-top: 50px;
+}
+
+.home-card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: black;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.footer {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #f0f0f0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .description {
-    font-size: 1.1em;
-    line-height: 1.6;
+    padding: 1rem;
+}
+
+.description p {
+    margin-bottom: 1rem;
 }
