@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 
-function Login() {
+const Login = ({ setLoggedIn }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,8 +20,9 @@ function Login() {
       });
 
       if (response.ok) {
+        setLoggedIn(true);
         alert('Login successful');
-        // Redirect to a dashboard or home page
+        navigate('/dashboard'); // Use navigate instead of history.push
       } else {
         alert('Invalid username or password');
       }
@@ -31,7 +33,7 @@ function Login() {
   };
 
   return (
-    <div className="login-container"> {/* Apply the CSS class */}
+    <div className="login-container"> 
       <h1>User Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
