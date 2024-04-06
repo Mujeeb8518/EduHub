@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate, Route } from 'react-router-dom';
 
-const PrivateRoute = ({ element, isAuthenticated, redirectTo }) => {
+const PrivateRoute = ({ element: Component, isAuthenticated, redirectTo }) => {
   return isAuthenticated ? (
-    element
+    <Component />
   ) : (
     <Navigate to={redirectTo} replace />
   );

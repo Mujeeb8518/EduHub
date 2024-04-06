@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/NavBar/NavBar';
@@ -11,9 +11,23 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn) {
+      setLoggedIn(true);
+    }
+  }, []);
+
+  const handleSignIn = () => {
+    setLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
+  };
+
   const handleSignOut = () => {
     setLoggedIn(false);
-  }
+    localStorage.removeItem('isLoggedIn');
+  };
 
   return (
     <div className="App">
@@ -22,18 +36,17 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
+          <Route
+            path="/login"
+            element={<Login setLoggedIn={handleSignIn} />}
+          />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute
-                element={<Dashboard />}
-                isAuthenticated={loggedIn}
-                redirectTo="/login"
-              />
-            }
-          />
+                path="/dashboard"
+            element={<PrivateRoute element={Dashboard} 
+            isAuthenticated={loggedIn}/>}
+            />
+
         </Routes>
       </Router>
     </div>
