@@ -8,6 +8,17 @@
 - Upload the code to Google Cloud Functions
 - You will have to set the entry point, it is the name of the function.
 
+- 1st function entrypoint is registerUser
+- 2nd function entrypoint is loginUser
+- 3rd function entrypoint is getUserPassword
+- 4th function entrypoint is addPost
+- 5th function entrypoint is getPosts
+- 6th function entrypoint is loginProfessor
+- 7th function entrypoint is addSolution
+- 8th function entrypoint is getPostsandSolutions
+
+- upload each function individually to google cloud functions.
+
 ## Instructions for front end:
 - go to the client folder with cd client and type in npm run build
 - go to google cloud storage
