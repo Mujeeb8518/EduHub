@@ -20,7 +20,7 @@ const Navbar = ({ isLoggedIn, handleSignOut }) => {
 
   if (!isLoggedIn) {
     items.push({
-      label: 'Questions',
+      label: 'Questions and Solutions',
       icon: 'pi pi-fw pi-list',
       url: '/questions',
       className: 'questions-button',
@@ -39,11 +39,13 @@ const Navbar = ({ isLoggedIn, handleSignOut }) => {
     </div>
   ) : (
     <div className="end-items">
-      <Link to="/login" style={{ textDecoration: 'none' }}>
+      <Link to="/login" style={{ textDecoration: 'none', marginRight: '10px' }}>
         <Button label="Login" icon="pi pi-sign-in" className="p-button-secondary" />
       </Link>
     </div>
   );
+
+  
 
   return (
     <div className="navbar">

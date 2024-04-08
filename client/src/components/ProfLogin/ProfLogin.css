@@ -21,12 +21,7 @@
     margin-bottom: 5px;
   }
   
-  .add-post-button-container {
-    margin-bottom: 10px; 
-  }
-
-  .login-container input,
-  .login-container .p-inputtextarea {
+  .login-container input {
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;

@@ -3,38 +3,50 @@ import { Card } from 'primereact/card';
 import './DisplayPost.css';
 
 const DisplayPosts = () => {
-  const [posts, setPosts] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchPostsAndSolutions = async () => {
       try {
-        const response = await fetch('https://us-central1-cmpt474pro.cloudfunctions.net/function-5', {
+        const response = await fetch('https://us-central1-cmpt474pro.cloudfunctions.net/function-8', {
           method: 'GET'
         });
 
         if (!response.ok) {
-          console.error('Failed to fetch posts');
+          console.error('Failed to fetch items');
           return;
         }
 
-        const postsData = await response.json();
-        setPosts(postsData);
+        const itemsData = await response.json();
+        setItems(itemsData);
       } catch (error) {
-        console.error('An error occurred while fetching posts:', error);
+        console.error('An error occurred while fetching items:', error);
       }
     };
 
-    fetchPosts();
+    fetchPostsAndSolutions();
   }, []);
+
+  const renderItem = (item, index) => {
+    if (item.postContent) { 
+      return (
+        <Card key={index} title={`Question by user ${item.username}`}>
+          <p>Question: {item.postContent}</p>
+        </Card>
+      );
+    } else if (item.solutionContent) { 
+      return (
+        <Card key={index} title={`Solution by user ${item.username}`}>
+          <p>Solution: {item.solutionContent}</p>
+        </Card>
+      );
+    }
+  };
 
   return (
     <div className="posts-container">
-      <h1>Questions</h1>
-      {posts.map((post, index) => (
-        <Card key={index} title={`Written by ${post.username}`}>
-          <p>Question: {post.postContent}</p>
-        </Card>
-      ))}
+      <h1>Questions and Solutions</h1>
+      {items.map(renderItem)}
     </div>
   );
 };

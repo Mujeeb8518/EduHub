@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AddPost from './components/Post/AddPost';
 import DisplayPosts from './components/Post/DisplayPost';
+import AddSolution from './components/Post/AddSolution';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -42,6 +43,7 @@ function App() {
             path="/login"
             element={<Login setLoggedIn={handleSignIn} />}
           />
+
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/dashboard"
@@ -53,6 +55,13 @@ function App() {
             element={<PrivateRoute element={AddPost}
             isAuthenticated={loggedIn}/>}
           />
+
+          <Route 
+            path="/add-solution"
+            element={<PrivateRoute element={AddSolution}
+            isAuthenticated={loggedIn}/>}
+          />
+
           <Route path="/questions" element={<DisplayPosts/>}></Route>
 
         </Routes>

@@ -13,6 +13,11 @@ const Dashboard = () => {
           <Button label="Ask Question" className="add-post-button" /> 
         </Link>
       </div>
+      <div className="add-post-button-container">
+        <Link to="/add-solution">
+          <Button label="Enter Solution" className="add-post-button" /> 
+        </Link>
+      </div>
       <DisplayPosts /> 
     </div>
   );
