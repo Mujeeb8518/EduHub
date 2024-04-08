@@ -9,6 +9,7 @@ import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AddPost from './components/Post/AddPost';
+import DisplayPosts from './components/Post/DisplayPost';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -52,6 +53,7 @@ function App() {
             element={<PrivateRoute element={AddPost}
             isAuthenticated={loggedIn}/>}
           />
+          <Route path="/questions" element={<DisplayPosts/>}></Route>
 
         </Routes>
       </Router>

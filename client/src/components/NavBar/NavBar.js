@@ -18,6 +18,15 @@ const Navbar = ({ isLoggedIn, handleSignOut }) => {
     },
   ];
 
+  if (!isLoggedIn) {
+    items.push({
+      label: 'Questions',
+      icon: 'pi pi-fw pi-list',
+      url: '/questions',
+      className: 'questions-button',
+    });
+  }
+
   const handleSignOutClick = () => {
     alert('You have signed out');
     navigate('/');
@@ -25,11 +34,15 @@ const Navbar = ({ isLoggedIn, handleSignOut }) => {
   };
 
   const endItems = isLoggedIn ? (
-    <Button label="Sign Out" icon="pi pi-sign-out" className="p-button-secondary" onClick={handleSignOutClick} />
+    <div className="end-items">
+      <Button label="Sign Out" icon="pi pi-sign-out" className="p-button-secondary" onClick={handleSignOutClick} />
+    </div>
   ) : (
-    <Link to="/login" style={{ textDecoration: 'none' }}>
-      <Button label="Login" icon="pi pi-sign-in" className="p-button-secondary" />
-    </Link>
+    <div className="end-items">
+      <Link to="/login" style={{ textDecoration: 'none' }}>
+        <Button label="Login" icon="pi pi-sign-in" className="p-button-secondary" />
+      </Link>
+    </div>
   );
 
   return (
