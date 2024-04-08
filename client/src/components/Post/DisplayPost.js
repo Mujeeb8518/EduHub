@@ -29,7 +29,7 @@ const DisplayPosts = () => {
 
   return (
     <div className="posts-container">
-      <h1>Posts</h1>
+      <h1>Questions</h1>
       {posts.map((post, index) => (
         <Card key={index} title={`Written by ${post.username}`}>
           <p>Question: {post.postContent}</p>

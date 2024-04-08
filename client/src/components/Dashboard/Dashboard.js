@@ -10,7 +10,7 @@ const Dashboard = () => {
       <h1>Welcome to EduHub Forum</h1>
       <div className="add-post-button-container">
         <Link to="/add-post">
-          <Button label="Add Post" className="add-post-button" /> 
+          <Button label="Ask Question" className="add-post-button" /> 
         </Link>
       </div>
       <DisplayPosts /> 

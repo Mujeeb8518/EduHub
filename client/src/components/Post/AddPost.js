@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from 'primereact/button';
 import { InputTextarea } from 'primereact/inputtextarea';
+import './AddPost.css';
 
 const AddPost = () => {
   const [postContent, setPostContent] = useState('');
@@ -38,13 +39,13 @@ const AddPost = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h1>Add a New Post</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="postContent">Post Content:</label><br />
         <InputTextarea id="postContent" value={postContent} onChange={(e) => setPostContent(e.target.value)} required rows={4} cols={50}></InputTextarea><br /><br />
 
-        <Button type="submit" label="Submit Post" />
+        <Button type="submit" label="Submit Post" className="login-button" /> {/* Apply similar button style */}
       </form>
     </div>
   );
