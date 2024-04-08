@@ -9,12 +9,15 @@
 - You will have to set the entry point, it is the name of the function.
 
 ## Instructions for front end:
-
-- goto google cloud storage
+- go to the client folder with cd client and type in npm run build
+- go to google cloud storage
 - make a new empty bucket  
-- so for each google function there is a url, addd that into its relevant function.html and then upload frontend.html files
-- in frontend bucket update permission for allUsers and role Storage Object Viewer
-- in google cloud sdk shell do gsutil web set -m index.html gs://<frontend bucket name>
-- your page will be hosted at https://storage.googleapis.com/<frontend bucket name>/index.html
-
+- in the bucket add the build folder created from above and also add the app.yaml file into the bucket
+- click on the google cloud sdk shell and you should currently be in your project e.g the line should say (user@cloudshell:~ (gcpproject)$)
+- if not in project, you can set your project to gcloud config set project [PROJECT_ID]
+- Next you must make a folder using the command 'mkdir eduhub'
+- Now you can type in gsutil rsync -r gs://[ADD BUCKET NAME] ./eduhub
+- Next type cd eduhub
+- Check if both build and app.yaml are inside the folder using ls, and then type gcloud app deploy
+- Follow the prompts and when deployed a url will be given
 
