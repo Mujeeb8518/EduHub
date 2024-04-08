@@ -19,12 +19,14 @@ const Login = ({ setLoggedIn }) => {
         body: JSON.stringify({ username, password })
       });
 
+      const data = await response.json();
       if (response.ok) {
         setLoggedIn(true);
         alert('Login successful');
-        navigate('/dashboard'); // Use navigate instead of history.push
+        localStorage.setItem('token', data.token);
+        navigate('/dashboard');
       } else {
-        alert('Invalid username or password');
+        alert(data.message || 'Invalid username or password');
       }
     } catch (error) {
       console.error('An error occurred:', error);

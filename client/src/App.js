@@ -8,6 +8,7 @@ import Login from './components/Login/Login';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import Dashboard from './components/Dashboard/Dashboard';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import AddPost from './components/Post/AddPost';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -42,10 +43,15 @@ function App() {
           />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
-                path="/dashboard"
+            path="/dashboard"
             element={<PrivateRoute element={Dashboard} 
             isAuthenticated={loggedIn}/>}
             />
+          <Route 
+            path="/add-post"
+            element={<PrivateRoute element={AddPost}
+            isAuthenticated={loggedIn}/>}
+          />
 
         </Routes>
       </Router>

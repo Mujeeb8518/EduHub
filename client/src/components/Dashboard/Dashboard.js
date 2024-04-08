@@ -1,11 +1,18 @@
 import React from 'react';
-import Forum from '../Forum/Forum';
+import { Link } from 'react-router-dom';
+import DisplayPosts from '../Post/DisplayPost';
 
 const Dashboard = () => {
   return (
     <div>
-      <h1>Welcome to Dashboard</h1>
-      <Forum/>
+      <h1>Welcome to EduHub Forum</h1>
+      <div style={{ float: 'right' }}>
+
+        <Link to="/add-post">
+          <button>Add Post</button>
+        </Link>
+      </div>
+      <DisplayPosts /> 
     </div>
   );
 }
